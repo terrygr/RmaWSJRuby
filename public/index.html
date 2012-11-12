@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create RMA WebService</title>
+    <style type="text/css" media="screen">
+      body {
+        margin: 0;
+        margin-bottom: 0px;
+        padding: 0;
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+
+      h1 {
+        font-size: 28px;
+        color: #000;
+      }
+
+      a  {color: #03c}
+      a:hover {
+        background-color: #03c;
+        color: white;
+        text-decoration: none;
+      }
+
+
+      #page {
+        background-color: #f0f0f0;
+        width: 1000px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      #content {
+        float: left;
+        background-color: white;
+        border: 3px solid #aaa;
+        border-top: none;
+        padding: 25px;
+        width: 1000px;
+      }
+
+      #footer {
+        clear: both;
+      }
+
+      #header, #about, #getting-started {
+        padding-left: 75px;
+        padding-right: 30px;
+      }
+
+
+      #header {
+        background-image: url("assets/rails.png");
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 30px;
+      }
+      #header h1, #header h2 {margin: 5}
+      #header h2 {
+        color: #888;
+        font-weight: normal;
+        font-size: 16px;
+      }
+
+      #getting-started {
+        border-top: 1px solid #ccc;
+        margin-top: 25px;
+        padding-top: 15px;
+      }
+      #getting-started h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      #getting-started h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        color: #333;
+        margin-bottom: 25px;
+      }
+      #getting-started ol {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      #getting-started li {
+        font-size: 18px;
+        color: #888;
+        margin-bottom: 25px;
+      }
+      #getting-started li h2 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 18px;
+        color: #333;
+      }
+      #getting-started li p {
+        color: #555;
+        font-size: 13px;
+      }
+
+      .filename {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <div id="content">
+        <div id="header">
+          <h1>Create RMA WebService</h1>
+        </div>
+
+        <div id="getting-started">
+          <h1>Here&rsquo;s how to start:</h1>
+
+          <ol>
+			<li>
+              <h2>The url to access it is:</h2>
+              <p>
+				~/rma_service/rma/createRma
+              </p>
+            </li>
+			<li>
+              <h2>Action Method:</h2>
+              <p>
+				POST
+              </p>
+            </li>
+            <li>
+              <h2>The webservice receives the order number and the items to be return in the following format:</h2>
+              <p>orderNumber = '518402'</p>
+	    <p>rmaItems = '[
+	    {
+	      "sku": "TNF0473-TNFLGIV-ONSI",
+	      "price": "14.95",
+	      "reason_code": "9",
+	      "reason_text": "I didnt like it",
+	      "return_quantity": 1
+	      },
+	      {
+	        "sku": "TNF0473-TNFLGNV-ONSI",
+	        "price": "14.95",
+	        "reason_code": "2",
+	        "reason_text": "",
+	        "return_quantity": 1
+	      }
+	      ]'</p>
+            </li>
+
+            <li>
+              <h2>A successful response would be:</h2>
+              <p>
+              	{
+				    "success": 1,
+				    "rmaid": 101025816
+				}
+              </p>
+            </li>
+
+            <li>
+              <h2>A unsuccesful response would be:</h2>
+              <p>  			
+				{
+				    "success": 0,
+				    "error": "An error ocurred while saving the rma"
+				}
+              </p>
+            </li>
+			<li>
+              <h2>Just a reminder</h2>
+              <p> 
+				This web service will validate that the skus you are returning are available on the order.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
